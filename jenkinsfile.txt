@@ -7,7 +7,7 @@ node('maven') {
     }
     stage('archieve&test results') {
          archive 'webapp/target/*.war'
-         junit 'webapp/target/surefire-reports/*.xml'
+         junit 'web/target/surefire-reports/*.xml'
     }
     
 }
