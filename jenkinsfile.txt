@@ -1,9 +1,9 @@
-node('master') {
+node('maven') {
     stage('git') {
          git 'https://github.com/jayaprakash521/openmrs.git'
     }
     stage('build') {
-         sh 'mvn clean package'
+         sh 'mvn package'
     }
     stage('archieve&test results') {
          archive 'webapp/target/*.war'
