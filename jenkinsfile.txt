@@ -3,7 +3,7 @@ node('master') {
          git 'https://github.com/jayaprakash521/openmrs.git'
     }
     stage('build') {
-         sh 'mvn package'
+         sh 'mvn clean package'
     }
     stage('archieve&test results') {
          archive 'webapp/target/*.war'
