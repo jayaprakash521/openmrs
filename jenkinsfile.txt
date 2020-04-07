@@ -1,0 +1,13 @@
+node('master') {
+    stage('git') {
+         git 'https://github.com/jayaprakash521/openmrs.git'
+    }
+    stage('build') {
+         sh 'mvn package'
+    }
+    stage('archieve&test results') {
+         archive 'webapp/target/*.war'
+         junit 'webapp/target/surefire-reports/*.xml'
+    }
+    
+}
