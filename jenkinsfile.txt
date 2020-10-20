@@ -1,6 +1,7 @@
-node('Med') {
+node('Med') 
+    properties([parameters([choice(choices: ['master', 'sprint-1', 'sprint-2'], description: '', name: 'branch')])]){
      stage('git') {
-          git 'https://github.com/jayaprakash521/openmrs.git'
+          git url: 'https://github.com/jayaprakash521/openmrs.git',branch: "${params.branch}"
 	  }
      stage('build') {
           sh 'mvn clean package'
