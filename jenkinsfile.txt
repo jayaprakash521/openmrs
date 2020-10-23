@@ -2,7 +2,7 @@ node('Med') {
     parameters {
       choice(name: 'branch', choices: ['master', 'dependabot/maven/junit-junit-4.13.1', 'dependabot/maven/mysql-mysql-connector-java-8.0.16'], description: 'Pick something')
      stage('git') {
-          git url: 'https://github.com/jayaprakash521/openmrs.git',branch: "$(params.branch)"
+          git url: 'https://github.com/jayaprakash521/openmrs.git',branch: "${params.branch}"
 	  }
      stage('build') {
           sh 'mvn clean package'
