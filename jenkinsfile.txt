@@ -10,7 +10,7 @@ node('Med') {
           archiveArtifacts artifacts: 'webapp/target/*.war', followSymlinks: false
 	  }
      stage('junit') {
-          junit 'web/target/surefire-reports/*.xml'
+          junit 'webapp/target/surefire-reports/*.xml'
 	  }
 }
 
